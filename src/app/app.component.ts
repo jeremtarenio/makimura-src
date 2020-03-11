@@ -26,8 +26,23 @@ export class AppComponent {
     { name: "Tori Ramen", imgUrl: "assets/ramen/tori-ramen.png", divider: 'とりラーメン' }
   ];
 
+  element: HTMLElement;
+  activeElementId;
+
   onToggleNavMenuMobile() {
     this.navMenuMobileOpen = !this.navMenuMobileOpen;
+  }
+
+  onMouseEnter(index) {
+    this.activeElementId = index;
+  }
+
+  clearActiveElement() {
+    this.activeElementId = -1;
+  }
+
+  isElementActive(index) {
+    return this.activeElementId === index ? true : false;
   }
 
   @HostListener("window:scroll", []) @debounce() onWindowScroll() {

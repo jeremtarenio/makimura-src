@@ -136,8 +136,12 @@ header {
   /* -webkit-box-shadow: 0px -9px 10px 4px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px -9px 10px 4px rgba(0, 0, 0, 0.75);
   box-shadow: 0px -9px 10px 4px rgba(0, 0, 0, 0.75); */
+}
+
+.my-nav-mobile, .calligraphy {
   transition: 0.3s;
 }
+
 
 .my-nav-mobile.hidden {
   transform: translateY(-115%);
@@ -222,11 +226,20 @@ section {
   margin-bottom: 1rem;
 }
 
-.ramen-img {
-  width: 85%;
+.ramen-img, .calligraphy {
   display: block;
-  margin: 1rem auto;
+  width: 85%;
 }
+
+.ramen-img {
+  margin: 1rem auto;
+  position: relative;
+}
+
+.calligraphy {
+  position: absolute;
+}
+
 
 .address {
   margin: 0;
@@ -235,6 +248,19 @@ section {
 .menu-section {
   background: rgb(246, 246, 246);
 }
+
+.location .separator {
+  width: 30px;
+  border-color: #98000d;
+}
+
+
+/* .testt {
+  background-image: url("../assets/calligraphy.png");
+  background-size: 45%;
+  background-repeat: no-repeat;
+  background-position: -20% -1rem;
+} */
 
 /******************************
 ***** SEPARATOR **************
