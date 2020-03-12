@@ -9,7 +9,7 @@ header {
 .my-nav-link,
 #company,
 .location .shop-name,
-.ramen-name {
+.menu-item-name {
   color: black;
   margin: 0;
   font-size: 1.3rem;
@@ -36,7 +36,7 @@ header {
 
 .my-nav-link,
 .location .shop-name,
-.ramen-name {
+.menu-item-name, button {
   text-transform: uppercase;
   font-family: "Source Sans Pro";
   font-weight: bold;
@@ -85,12 +85,6 @@ header {
   display: none;
 }
 
-/* .burger,
-.close-menu,
-#company {
-  position: absolute;
-} */
-
 #company.desktop {
   position: initial;
 }
@@ -132,10 +126,7 @@ header {
   position: fixed;
   width: 100%;
   background: white;
-  z-index: 2;
-  /* -webkit-box-shadow: 0px -9px 10px 4px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px -9px 10px 4px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px -9px 10px 4px rgba(0, 0, 0, 0.75); */
+  z-index: 10;
 }
 
 .my-nav-mobile, .calligraphy {
@@ -153,7 +144,7 @@ header {
 
 .nav-menu-mobile {
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   background: white;
   height: 100%;
   width: 100%;
@@ -200,9 +191,9 @@ header {
 
 .row .location,
 .section-title,
-.ramen-name,
+.menu-item-name,
 .divider,
-.ramen-desc {
+.menu-item-desc {
   text-align: center;
 }
 
@@ -211,33 +202,38 @@ section {
   padding-bottom: 2rem;
 }
 
-.location,
 .section-title,
-.ramen-wrapper {
+.ramen-wrapper,
+.tabs {
   margin-bottom: 2rem;
+}
+
+.location:not(:last-of-type) {
+  margin-bottom: 2.5rem;
 }
 
 .location img {
   height: auto;
-  border-right: 3px solid #98000d;
-  border-left: 3px solid #98000d;
+  /* border-right: 3px solid #98000d;
+  border-left: 3px solid #98000d; */
   border-radius: 8px;
   width: 100%;
   margin-bottom: 1rem;
 }
 
-.ramen-img, .calligraphy {
+.menu-item-img, .calligraphy {
   display: block;
   width: 85%;
 }
 
-.ramen-img {
+.menu-item-img {
   margin: 1rem auto;
   position: relative;
 }
 
 .calligraphy {
   position: absolute;
+  /* filter: grayscale(50%); */
 }
 
 
@@ -245,7 +241,7 @@ section {
   margin: 0;
 }
 
-.menu-section {
+#menu-section {
   background: rgb(246, 246, 246);
 }
 
@@ -254,12 +250,21 @@ section {
   border-color: #98000d;
 }
 
+.tabs {
+  display: table;
+  margin: 2rem auto;
+}
 
-/* .testt {
-  background-image: url("../assets/calligraphy.png");
-  background-size: 45%;
-  background-repeat: no-repeat;
-  background-position: -20% -1rem;
+.carousel-indicators {
+  position: unset;
+}
+
+.carousel-item {
+  transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out;
+}
+
+/* .tabs button:first-child {
+  margin-right: 1rem;
 } */
 
 /******************************
@@ -288,6 +293,7 @@ section {
   -webkit-transform: translateY(-100%) translateY(2px);
   transform: translateY(-100%) translateY(2px);
   width: 100%;
+
 }
 .svg-separator.bottom {
   top: auto;
@@ -466,6 +472,11 @@ section {
   .nav-links {
     display: flex;
   }
+
+  .carousel-item {
+    transition: transform .6s ease-in-out,-webkit-transform .6s ease-in-out;
+  }
+
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -502,5 +513,10 @@ section {
   .content-text {
     max-width: 58%;
     top: 23%;
+  }
+
+  .my-container {
+    padding-left: 20%;
+    padding-right: 20%;
   }
 }

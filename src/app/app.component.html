@@ -91,22 +91,83 @@
   </div>
 
 </div>
-<section class="menu-section">
+<section id="menu-section">
   <div class="my-container">
     <h1 class="section-title">Our <span class="red">Menu</span></h1>
-    <div class="row">
-      <div class="col-lg-4 col-md-6 ramen-wrapper testt" *ngFor="let ramen of ramens; let i = index" (mouseleave)="clearActiveElement()" (mouseenter)="onMouseEnter(i)">
-        <img id="{{ i }}" class="calligraphy" src="../assets/ramen/bg.png" alt="" [ngStyle]="{'opacity': isElementActive(i) ? '1' : '0'}">
-        <img class="ramen-img" src="{{ramen.imgUrl }}" alt="">
-        <h4 class="ramen-name">- {{ ramen.name }} -</h4>
-        <!-- <div class="separator menu"></div> -->
-        <p class="divider">{{ ramen.divider }}</p>
-        <p class="ramen-desc">Lorem ipsum dolor sit amet.</p>
 
+
+    <div id="menuCarousel" class="carousel slide" data-touch="false" data-ride="carousel" data-interval="false">
+      <div class="tabs">
+        <button
+          data-target="#menuCarousel"
+          data-slide-to="0"
+          (click)="onClickCategory('ramen', false)"
+          [ngClass]="activeCategory === 'ramen' ? 'active' : ''"
+        >
+        Ramen
+        </button>
+        <button
+          data-target="#menuCarousel"
+          data-slide-to="1"
+          (click)="onClickCategory('sides', false)"
+          [ngClass]="activeCategory === 'sides' ? 'active' : ''"
+        >
+        Sides
+        </button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-lg-4 col-6 ramen-wrapper" *ngFor="let ramen of ramens; let i = index"
+              (mouseleave)="clearActiveElement()" (mouseenter)="onMouseEnter(i)">
+              <img id="{{ i }}" class="calligraphy" src="../assets/ramen/bg.png" alt=""
+                [ngStyle]="{'opacity': isElementActive(i) ? '0.5' : '0'}">
+              <img class="menu-item-img" src="{{ramen.imgUrl }}" alt="">
+              <h4 class="menu-item-name">- {{ ramen.name }} -</h4>
+              <!-- <div class="separator menu"></div> -->
+              <p class="divider">{{ ramen.divider }}</p>
+              <p class="menu-item-desc">Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-lg-4 col-6 ramen-wrapper" *ngFor="let ramen of sides; let i = index"
+              (mouseleave)="clearActiveElement()" (mouseenter)="onMouseEnter(i)">
+              <img id="{{ i }}" class="calligraphy" src="../assets/ramen/bg.png" alt=""
+                [ngStyle]="{'opacity': isElementActive(i) ? '0.5' : '0'}">
+              <img class="menu-item-img" src="{{ramen.imgUrl }}" alt="">
+              <h4 class="menu-item-name">- {{ ramen.name }} -</h4>
+              <!-- <div class="separator menu"></div> -->
+              <p class="divider">{{ ramen.divider }}</p>
+              <p class="menu-item-desc">Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tabs">
+        <button
+          data-target="#menuCarousel"
+          data-slide-to="0"
+          (click)="onClickCategory('ramen', true)"
+          [ngClass]="activeCategory === 'ramen' ? 'active' : ''"
+        >
+        Ramen
+        </button>
+        <button
+          data-target="#menuCarousel"
+          data-slide-to="1"
+          (click)="onClickCategory('sides', true)"
+          [ngClass]="activeCategory === 'sides' ? 'active' : ''"
+        >
+        Sides
+        </button>
       </div>
     </div>
   </div>
 </section>
+
 
 <section>
   <div class="my-container">
