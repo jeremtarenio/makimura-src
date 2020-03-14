@@ -16,30 +16,30 @@
   </div>
 </nav>
 
+<nav class="my-nav-desktop my-container">
+  <div class="nav-wrapper">
+    <h1 id="company" class="desktop">- Makimura -</h1>
+    <ul class="nav-links">
+      <li class="my-nav-link"><span class="iconify" data-icon="emojione-monotone:pot-of-food"
+          data-inline="false"></span> Menu</li>
+      <li class="my-nav-link"><span class="iconify" data-icon="ant-design:book-outlined" data-inline="false"></span>
+        Reservation</li>
+      <li class="my-nav-link"><span class="iconify" data-icon="ant-design:phone-outlined" data-inline="false"></span>
+        Contact</li>
+      <li class="my-nav-link"><span class="iconify" data-icon="ion-information-circle-outline"
+          data-inline="false"></span> About</li>
+    </ul>
+  </div>
+
+</nav>
+
+<nav class="my-nav-mobile" [ngClass]="scrollingPosition === 'down' ? 'hidden' : 'shown'">
+  <h1 id="company">- Makimura -</h1>
+  <div class="toggler" (click)="onToggleNavMenuMobile()"><span class="iconify burger" data-icon="bx:bx-menu"
+      data-inline="false"></span></div>
+</nav>
+
 <header>
-  <nav class="my-nav-desktop my-container">
-    <div class="nav-wrapper">
-      <h1 id="company" class="desktop">- Makimura -</h1>
-      <ul class="nav-links">
-        <li class="my-nav-link"><span class="iconify" data-icon="emojione-monotone:pot-of-food"
-            data-inline="false"></span> Menu</li>
-        <li class="my-nav-link"><span class="iconify" data-icon="ant-design:book-outlined" data-inline="false"></span>
-          Reservation</li>
-        <li class="my-nav-link"><span class="iconify" data-icon="ant-design:phone-outlined" data-inline="false"></span>
-          Contact</li>
-        <li class="my-nav-link"><span class="iconify" data-icon="ion-information-circle-outline"
-            data-inline="false"></span> About</li>
-      </ul>
-    </div>
-
-  </nav>
-
-  <nav class="my-nav-mobile" [ngClass]="scrollingPosition === 'down' ? 'hidden' : 'shown'">
-    <h1 id="company">- Makimura -</h1>
-    <div class="toggler" (click)="onToggleNavMenuMobile()"><span class="iconify burger" data-icon="bx:bx-menu"
-        data-inline="false"></span></div>
-
-  </nav>
 
   <div class="content my-container">
     <div class="content-text">
@@ -51,6 +51,8 @@
   </div>
 
 </header>
+
+
 
 <div class="roww white">
   <div>
@@ -91,6 +93,7 @@
   </div>
 
 </div>
+
 <section id="menu-section">
   <div class="my-container">
     <h1 class="section-title">Our <span class="red">Menu</span></h1>
@@ -124,7 +127,6 @@
                 [ngStyle]="{'opacity': isElementActive(i) ? '0.5' : '0'}">
               <img class="menu-item-img" src="{{ramen.imgUrl }}" alt="">
               <h4 class="menu-item-name">- {{ ramen.name }} -</h4>
-              <!-- <div class="separator menu"></div> -->
               <p class="divider">{{ ramen.divider }}</p>
               <p class="menu-item-desc">Lorem ipsum dolor sit amet.</p>
             </div>
@@ -139,13 +141,13 @@
                 [ngStyle]="{'opacity': isElementActive(i) ? '0.5' : '0'}">
               <img class="menu-item-img" src="{{ramen.imgUrl }}" alt="">
               <h4 class="menu-item-name">- {{ ramen.name }} -</h4>
-              <!-- <div class="separator menu"></div> -->
               <p class="divider">{{ ramen.divider }}</p>
               <p class="menu-item-desc">Lorem ipsum dolor sit amet.</p>
             </div>
           </div>
         </div>
       </div>
+
       <div class="tabs">
         <button
           data-target="#menuCarousel"
@@ -170,29 +172,31 @@
 
 
 <section>
-  <div class="my-container">
+  <div class="my-container locations">
     <h1 class="section-title">Our <span class="red">Branches</span></h1>
     <div class="row">
       <div class="col-lg-4 location">
-
-        <img src="assets/shop-1.jpg" alt="angeles shop">
+        <div class="location-img-wrapper">
+          <a class="location-img" style="background-image: url('../assets/shop-1.jpg');"></a>
+        </div>
+        <div class="separator"></div>
         <h4 class="shop-name">- Angeles -</h4>
-        <div class="separator"></div>
-        <p class="address">Level 2, Marquee Mall, Francisco G. Nepo Avenue, Angeles, Pampanga</p>
       </div>
-      <div class="col-lg-4 location">
 
-        <img src="assets/shop-2.jpg" alt="Clark shop">
+      <div class="col-lg-4 location">
+        <div class="location-img-wrapper">
+          <a class="location-img" style="background-image: url('../assets/shop-2.jpg');"></a>
+        </div>
+        <div class="separator"></div>
         <h4 class="shop-name">- Clark -</h4>
-        <div class="separator"></div>
-        <p class="address">Clark Parade Grounds, S. Osmeña, Clark Freeport, Mabalacat, Pampanga</p>
       </div>
-      <div class="col-lg-4 location">
 
-        <img src="assets/shop-3.jpg" alt="San Fernando shop">
-        <h4 class="shop-name">- San Fernando -</h4>
+      <div class="col-lg-4 location">
+        <div class="location-img-wrapper">
+          <a class="location-img" style="background-image: url('../assets/shop-3.jpg');"></a>
+        </div>
         <div class="separator"></div>
-        <p class="address">Ground Floor, SM Pampanga, Jose Abad Santos Ave., San Fernando, Pampanga</p>
+        <h4 class="shop-name">- San Fernando -</h4>
       </div>
     </div>
   </div>

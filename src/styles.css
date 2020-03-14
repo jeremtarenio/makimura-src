@@ -3,11 +3,13 @@
 html {
   height: 100%;
   /* overflow-x: hidden; */
+  font-size: 16px;
 }
 
 body {
   height: 100%;
   width: 100%;
+  margin: 0;
 }
 
 ul {
@@ -23,12 +25,12 @@ button {
 }
 
 button:focus {
-    outline: 0px;
+  outline: 0px;
 }
 
 button.active {
-    background: #98000d;
-    color: white;
+  background: #98000d;
+  color: white;
 }
 
 @media (min-width: 376px) {
