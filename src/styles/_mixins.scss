@@ -1,0 +1,29 @@
+@import './variables';
+
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin padding-y($left, $right) {
+  padding-left: $left;
+  padding-right: $right;
+}
+
+@mixin img-fluid() {
+  height: auto;
+  max-width: 100%;
+}
+
+@mixin item-label() {
+  color: $black;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+@mixin upper-bold() {
+  text-transform: uppercase;
+  font-family: $secondary-font;
+  font-weight: bold;
+}

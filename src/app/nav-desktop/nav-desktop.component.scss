@@ -1,0 +1,35 @@
+.my-nav-desktop {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .my-nav-desktop {
+    display: block;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    &.my-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .my-nav-desktop {
+    &.my-container {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+  }
+}

@@ -1,1 +1,23 @@
-<p>nav-mobile works!</p>
+<nav class="nav-menu-mobile" [ngClass]="navMenuMobileOpen ? 'shown' : 'hidden'">
+    <div>
+      <!-- <div class="toggler" (click)="onToggleNavMenuMobile()"><span class="iconify close-menu" data-icon="ic:baseline-close" data-inline="false"></span></div> -->
+      <ul>
+        <li class="my-nav-link">Menu</li>
+        <li class="my-nav-link">Reservation</li>
+        <li class="my-nav-link">Contact</li>
+        <li class="my-nav-link">About</li>
+      </ul>
+      <div class="separator menu"></div>
+      <ul class="socials">
+        <li><span class="iconify" data-icon="cib-facebook" data-inline="false"></span></li>
+        <li><span class="iconify" data-icon="cib-instagram" data-inline="false"></span></li>
+        <li><span class="iconify" data-icon="cib-twitter" data-inline="false"></span></li>
+      </ul>
+    </div>
+  </nav>
+
+  <nav class="my-nav-mobile" [ngClass]="scrollingPosition === 'down' ? 'hidden' : 'shown'">
+    <h1 id="company">- Makimura -</h1>
+    <div class="toggler" (click)="onToggleNavMenuMobile()"><span class="iconify burger" data-icon="bx:bx-menu"
+        data-inline="false"></span></div>
+  </nav>

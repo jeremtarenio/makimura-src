@@ -1,0 +1,400 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+/* G E N E R A L */
+
+.red {
+  color: $red;
+}
+
+.section-title {
+  font-family: $main-font;
+  margin-bottom: 3rem;
+}
+
+.row .location,
+.section-title,
+.menu-item-name,
+.divider,
+.menu-item-desc {
+  text-align: center;
+}
+
+section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* H E A D E R */
+
+header {
+  height: 100%;
+  background: url("../../assets/bg-sm.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+}
+
+.content-text {
+  position: relative;
+  top: 18%;
+}
+
+.content {
+  height: 100%;
+
+  .main-text {
+    font-family: $main-font;
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .main-text,
+  p {
+    text-align: center;
+    margin: 0;
+  }
+}
+
+/* S E P A R A T O R */
+
+.separator-container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.svg-separator {
+  display: block;
+  background: 0 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  -webkit-transform: translateY(-100%) translateY(2px);
+  transform: translateY(-100%) translateY(2px);
+  width: 100%;
+}
+
+.sep1 {
+  transform: translateY(-100%) translateY(2px) scale(1, 1);
+  transform-origin: top;
+}
+
+/* M E N U */
+
+#menu-section {
+  background: rgb(246, 246, 246);
+}
+
+.tabs {
+  display: table;
+  margin: 2rem auto;
+}
+
+.carousel-indicators {
+  position: unset;
+}
+
+.carousel-item {
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.menu-item-img,
+.calligraphy {
+  display: block;
+  width: 85%;
+}
+
+.calligraphy {
+  position: absolute;
+  transition: 0.3s;
+}
+
+.menu-item-img {
+  margin: 1rem auto;
+  position: relative;
+}
+
+.divider {
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.menu-item-wrapper,
+.tabs {
+  margin-bottom: 2rem;
+}
+
+.menu-item-name {
+  @include item-label();
+  @include upper-bold();
+}
+
+/* B R A N C H E S */
+
+.location {
+  @include padding-y(30px, 30px);
+  cursor: pointer;
+
+  .shop-name {
+    @include item-label();
+    @include upper-bold();
+  }
+
+  .separator {
+    width: 30px;
+    border-color: $red;
+    margin: 1.5rem auto;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.address {
+  margin: 0;
+}
+
+.location-img {
+  background-size: cover;
+  display: block;
+  padding-top: calc(
+    300 / 533 * 100%
+  ); /* formula for retaining aspect ratios for block elements */
+  background-repeat: no-repeat;
+  background-color: $black;
+
+  &::before {
+    content: "";
+    color: white;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(221, 221, 221, 0.335);
+  }
+}
+
+.location-img-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+
+  .location-img {
+    transform: scale(0.999);
+  }
+}
+
+.location-img-wrapper .location-img,
+.location-img::before,
+.shop-name {
+  transition: 0.3s;
+}
+
+.location {
+  &:hover,
+  &:focus {
+    .location-img {
+      transform: scale(1.1);
+
+      &:before {
+        opacity: 1;
+      }
+    }
+
+    .shop-name {
+      letter-spacing: 2px;
+    }
+  }
+}
+
+@media (min-width: 376px) {
+  .content {
+    .main-text {
+      font-size: 3.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media (min-width: 376px) and (max-height: 668px) and (orientation: landscape) {
+  header {
+    background: url("../../assets/bg-lg.jpg");
+    background-position: 100% 0%;
+    background-size: 130%;
+    background-repeat: no-repeat;
+  }
+
+  .content {
+    .main-text {
+      text-align: start;
+      font-size: 2.2rem;
+    }
+
+    p {
+      text-align: start;
+      font-size: 1rem;
+    }
+  }
+
+  .content-text {
+    top: 30%;
+    width: 31.5%;
+  }
+}
+
+@media (min-width: 768px) and (orientation: portrait) {
+  header {
+    background: url("../../assets/bg-md.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  .content-text {
+    top: 23%;
+  }
+
+  .content {
+    .main-text {
+      font-size: 5.5rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  }
+
+  .my-container.locations {
+    @include padding-y(20%, 20%);
+  }
+}
+
+@media (min-width: 768px) and (orientation: landscape) {
+  header {
+    background: url("../../assets/bg-md.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  .content {
+    .main-text {
+      font-size: 5.5rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+
+  .my-container.locations {
+    @include padding-y(20%, 20%);
+  }
+}
+
+@media (min-width: 768px) and (max-height: 412px) and (orientation: landscape) {
+  header {
+    background: url("../../assets/bg-lg.jpg");
+    background-position: 100% 0%;
+    background-size: 60rem;
+  }
+
+  .content {
+    .main-text {
+      font-size: 2.6rem;
+      text-align: start;
+    }
+
+    p {
+      font-size: 1.1rem;
+      text-align: start;
+    }
+  }
+
+  .content-text {
+    top: 29%;
+    width: 31.5%;
+  }
+
+}
+
+@media (min-width: 992px) {
+  header {
+    height: calc(100% - 57.19px);
+  }
+
+  .my-nav-mobile {
+    display: none;
+  }
+
+  .content {
+    .main-text {
+      font-size: 5.5rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .carousel-item {
+    transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+  }
+
+  .my-container.locations {
+    @include padding-y(5%, 5%);
+  }
+}
+
+@media (min-width: 1200px) {
+  .content {
+    height: calc(100% - 70px);
+  }
+
+  .content.my-container {
+    @include padding-y(15%, 15%);
+  }
+}
+
+@media (min-width: 1600px) {
+  header {
+    background: url("../../assets/bg-desktop.jpg");
+    background-size: 53%;
+    background-repeat: no-repeat;
+    background-position-y: 135%;
+    background-position-x: 107%;
+  }
+
+  .content {
+    .main-text, p {
+      text-align: start;
+    }
+  }
+
+  .content-text {
+    max-width: 58%;
+    top: 23%;
+  }
+
+  .my-container.locations {
+    @include padding-y(10%, 10%);
+  }
+}

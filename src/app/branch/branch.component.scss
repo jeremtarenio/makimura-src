@@ -1,0 +1,32 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+/* H E A D E R  I M A G E  */
+
+.my-container {
+  @include padding-y(5%, 5%);
+
+  &.location-header {
+    padding-top: 57.19px;
+    height: 100%;
+  }
+}
+
+.location-header-img {
+  @include flex-center();
+  font-family: $secondary-font;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../assets/branches/clark.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.location-header-text {
+  @include upper-bold();
+  letter-spacing: 6px;
+  color: white;
+}
+
+/* D E T A I L S  */
