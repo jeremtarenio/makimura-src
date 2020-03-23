@@ -16,7 +16,7 @@
     </div>
   </nav>
 
-  <nav class="my-nav-mobile" [ngClass]="scrollingPosition === 'down' ? 'hidden' : 'shown'">
+  <nav class="my-nav-mobile" appNavHide> <!-- [ngClass]="scrollingPosition === 'down' ? 'hidden' : 'shown'" -->
     <h1 id="company">- Makimura -</h1>
     <div class="toggler" (click)="onToggleNavMenuMobile()"><span class="iconify burger" data-icon="bx:bx-menu"
         data-inline="false"></span></div>

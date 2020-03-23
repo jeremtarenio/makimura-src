@@ -142,7 +142,7 @@ header {
 /* B R A N C H E S */
 
 .location {
-  @include padding-y(30px, 30px);
+  @include padding-x(30px, 30px);
   cursor: pointer;
 
   .shop-name {
@@ -279,7 +279,7 @@ header {
   }
 
   .my-container.locations {
-    @include padding-y(20%, 20%);
+    @include padding-x(20%, 20%);
   }
 }
 
@@ -302,7 +302,7 @@ header {
   }
 
   .my-container.locations {
-    @include padding-y(20%, 20%);
+    @include padding-x(20%, 20%);
   }
 }
 
@@ -333,9 +333,9 @@ header {
 }
 
 @media (min-width: 992px) {
-  header {
+  /* header {
     height: calc(100% - 57.19px);
-  }
+  } */
 
   .my-nav-mobile {
     display: none;
@@ -360,17 +360,17 @@ header {
   }
 
   .my-container.locations {
-    @include padding-y(5%, 5%);
+    @include padding-x(5%, 5%);
   }
 }
 
 @media (min-width: 1200px) {
-  .content {
+  /* .content {
     height: calc(100% - 70px);
-  }
+  } */
 
   .content.my-container {
-    @include padding-y(15%, 15%);
+    @include padding-x(15%, 15%);
   }
 }
 
@@ -391,10 +391,10 @@ header {
 
   .content-text {
     max-width: 58%;
-    top: 23%;
+    top: 30%;
   }
 
   .my-container.locations {
-    @include padding-y(10%, 10%);
+    @include padding-x(10%, 10%);
   }
 }

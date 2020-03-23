@@ -1,5 +1,4 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { debounce } from '../debouncer';
 import { throttle } from '../throttle.decorator';
 
 @Component({
@@ -21,8 +20,7 @@ export class NavMobileComponent implements OnInit {
     this.navMenuMobileOpen = !this.navMenuMobileOpen;
   }
 
-  @HostListener("window:scroll", []) @throttle(100) onWindowScroll() {
-    console.log('a');
+  @HostListener("window:scroll", []) @throttle(250) onWindowScroll() {
     const verticalOffset =
       window.pageYOffset ||
       document.documentElement.scrollTop ||

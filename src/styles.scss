@@ -48,6 +48,10 @@ button {
   }
 }
 
+.red {
+  color: $red;
+}
+
 .my-nav-link {
   color: $black;
   margin: 0;
@@ -70,7 +74,7 @@ button {
 }
 
 .my-container {
-  @include padding-y(8%, 8%);
+  @include padding-x(8%, 8%);
 }
 
 @media (min-width: 376px) {
@@ -85,13 +89,13 @@ button {
   }
 
   .my-container {
-    @include padding-y(5%, 5%);
+    @include padding-x(5%, 5%);
   }
 }
 
 @media (min-width: 768px) and (orientation: portrait) {
   .my-container {
-    @include padding-y(10%, 10%);
+    @include padding-x(10%, 10%);
   }
 }
 
@@ -101,12 +105,12 @@ button {
   }
 
   .my-container {
-    @include padding-y(10%, 10%);
+    @include padding-x(10%, 10%);
   }
 }
 
 @media (min-width: 1600px) {
   .my-container {
-    @include padding-y(20%, 20%);
+    @include padding-x(20%, 20%);
   }
 }

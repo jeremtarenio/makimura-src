@@ -8,6 +8,7 @@ import { NavMobileComponent } from './nav-mobile/nav-mobile.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { BranchComponent } from './branch/branch.component';
 import { FooterComponent } from './footer/footer.component';
+import { NavHideDirective } from './shared/nav-hide.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './footer/footer.component';
     NavMobileComponent,
     HomepageComponent,
     BranchComponent,
-    FooterComponent
+    FooterComponent,
+    NavHideDirective
   ],
   imports: [
     BrowserModule,

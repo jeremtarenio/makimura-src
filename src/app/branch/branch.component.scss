@@ -1,32 +1,112 @@
 @import "../../styles/mixins";
 @import "../../styles/variables";
 
+.nav-desktop {
+  border-bottom: 5px solid $red;
+}
+
 /* H E A D E R  I M A G E  */
 
 .my-container {
-  @include padding-y(5%, 5%);
+  @include padding-x(0px, 0px);
+  text-align: center;
+
 
   &.location-header {
     padding-top: 57.19px;
-    height: 100%;
+    height: 450px;
+    /* margin-bottom: 3rem; */
   }
 }
 
 .location-header-img {
   @include flex-center();
   font-family: $secondary-font;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../../assets/branches/clark.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 100%;
+}
+
+.text-background {
+  background: rgba(152, 0, 13, 0.4);
+  padding: 1rem 2.5rem;
 }
 
 .location-header-text {
   @include upper-bold();
+  font-weight: 500;
   letter-spacing: 6px;
   color: white;
+
 }
 
 /* D E T A I L S  */
+
+.details {
+  @include padding-y(3rem, 3rem);
+  @include padding-x(5%, 5%);
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0rem;
+  }
+}
+
+.map {
+  display: inline-table;
+  margin-bottom: 1.5rem;
+}
+
+.map,
+iframe {
+  height: 320px;
+  width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+.separator {
+  border-color: $red;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 80px;
+}
+
+.address,
+.address:link,
+.address:visited {
+  color: black;
+  text-decoration: underline;
+}
+
+.hrs {
+  line-height: 0.8;
+  font-family: $main-font;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 992px) {
+  .my-container {
+    @include padding-x(0px, 0px);
+
+    &.location-header {
+      height: 550px;
+    }
+  }
+
+  .location-header-text {
+    letter-spacing: 15px;
+    color: white;
+    font-size: 4.5rem;
+  }
+
+  .map,
+  iframe {
+    height: 526px;
+    max-width: 964px;
+  }
+}

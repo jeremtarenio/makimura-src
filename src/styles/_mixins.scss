@@ -6,9 +6,14 @@
   justify-content: center;
 }
 
-@mixin padding-y($left, $right) {
+@mixin padding-x($left, $right) {
   padding-left: $left;
   padding-right: $right;
+}
+
+@mixin padding-y($top, $bottom) {
+  padding-top: $top;
+  padding-bottom: $bottom;
 }
 
 @mixin img-fluid() {
