@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 export class MenuItem {
   constructor(
@@ -14,7 +15,6 @@ export class MenuItem {
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent  {
-
   headerMobileVisible = true;
 
   scrolled = false;
@@ -93,6 +93,8 @@ export class HomepageComponent  {
   activeElementId;
   activeCategory = 'ramen';
 
+  constructor(private router: Router) {}
+
   onClickCategory(category: string, scrollToTop: boolean) {
     const menuSection = document.getElementById('menu-section');
 
@@ -115,6 +117,11 @@ export class HomepageComponent  {
 
   isElementActive(index) {
     return this.activeElementId === index ? true : false;
+  }
+
+  onNavigateToBranch(branchName) {
+    this.router.navigate([`/branch/${branchName}`]);
+    window.scrollTo(0, 0);
   }
 
 }
