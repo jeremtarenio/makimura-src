@@ -11,7 +11,7 @@
   </div>
 </header>
 
-<div class="separator-container">
+<div class="separator-container" id="menu-section">
   <div>
     <svg id="" preserveAspectRatio="xMidYMax meet" class="svg-separator sep1" viewBox="0 0 1600 100" style=""
       data-height="100">
@@ -51,7 +51,7 @@
 
 </div>
 
-<section id="menu-section">
+<section >
   <div class="my-container">
     <h1 class="section-title">Our <span class="red">Menu</span></h1>
     <div id="menuCarousel" class="carousel slide" data-touch="false" data-ride="carousel" data-interval="false">
@@ -110,32 +110,16 @@
 </section>
 
 
-<section>
+<section id="branches">
   <div class="my-container locations">
     <h1 class="section-title">Our <span class="red">Branches</span></h1>
     <div class="row">
-      <div class="col-lg-4 location" (click)="onNavigateToBranch('angeles')">
+      <div class="col-lg-4 location" (click)="onNavigateToBranch(branch.url)" *ngFor="let branch of branches">
         <div class="location-img-wrapper">
-          <a class="location-img" style="background-image: url('../assets/shop-1.jpg');"></a>
+          <a class="location-img" [ngStyle]="{ 'background-image': 'url(' + branch.thumbUrl + ')'}"></a>
         </div>
         <div class="separator"></div>
-        <h4 class="shop-name">- Angeles -</h4>
-      </div>
-
-      <div class="col-lg-4 location">
-        <div class="location-img-wrapper">
-          <a class="location-img" style="background-image: url('../assets/shop-2.jpg');"></a>
-        </div>
-        <div class="separator"></div>
-        <h4 class="shop-name">- Clark -</h4>
-      </div>
-
-      <div class="col-lg-4 location">
-        <div class="location-img-wrapper">
-          <a class="location-img" style="background-image: url('../assets/shop-3.jpg');"></a>
-        </div>
-        <div class="separator"></div>
-        <h4 class="shop-name">- San Fernando -</h4>
+        <h4 class="shop-name">- {{ branch.name }} -</h4>
       </div>
     </div>
   </div>

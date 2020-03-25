@@ -1,13 +1,13 @@
 <nav class="my-nav-desktop my-container" appNavHide>
     <div class="nav-wrapper">
-      <h1 id="company" class="desktop">- Makimura -</h1>
+      <h1 id="company" class="desktop" (click)="navigateToHome()">- Makimura -</h1>
       <ul class="nav-links">
-        <li class="my-nav-link"><span class="iconify" data-icon="emojione-monotone:pot-of-food"
+        <li class="my-nav-link" (click)="navigate('menu-section')"><span class="iconify" data-icon="emojione-monotone:pot-of-food"
             data-inline="false"></span> Menu</li>
         <li class="my-nav-link"><span class="iconify" data-icon="ant-design:book-outlined" data-inline="false"></span>
           Reservation</li>
-        <li class="my-nav-link"><span class="iconify" data-icon="ant-design:phone-outlined" data-inline="false"></span>
-          Contact</li>
+        <li class="my-nav-link" (click)="navigate('branches')"><span class="iconify" data-icon="ant-design:phone-outlined" data-inline="false"></span>
+          Branches</li>
         <li class="my-nav-link"><span class="iconify" data-icon="ion-information-circle-outline"
             data-inline="false"></span> About</li>
       </ul>

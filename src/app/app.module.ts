@@ -9,6 +9,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { BranchComponent } from './branch/branch.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavHideDirective } from './shared/nav-hide.directive';
+import { SafePipe } from './shared/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavHideDirective } from './shared/nav-hide.directive';
     HomepageComponent,
     BranchComponent,
     FooterComponent,
-    NavHideDirective
+    NavHideDirective,
+    SafePipe
   ],
   imports: [
     BrowserModule,

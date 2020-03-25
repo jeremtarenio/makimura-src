@@ -1,38 +1,31 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { BranchService, Branch } from "../shared/branch.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-branch',
-  templateUrl: './branch.component.html',
-  styleUrls: ['./branch.component.scss']
+  selector: "app-branch",
+  templateUrl: "./branch.component.html",
+  styleUrls: ["./branch.component.scss"]
 })
-export class BranchComponent implements AfterViewInit  {
-  @ViewChild('mapContainer', {static: false}) gmap: ElementRef;
-  map: google.maps.Map;
-  lat = 15.1802672;
-  lng = 120.5225122;
-  coordinates = new google.maps.LatLng(this.lat, this.lng);
+export class BranchComponent implements OnInit {
+  branch: Branch;
+  constructor(
+    private branchService: BranchService,
+    private route: ActivatedRoute
+  ) {}
 
-  mapOptions: google.maps.MapOptions = {
-    center: this.coordinates,
-    zoom: 14,
-  };
-
-  marker = new google.maps.Marker({
-    position: this.coordinates,
-    map: this.map,
-  });
-
-  constructor() { }
-
-  ngAfterViewInit(): void {
-    this.mapInitializer();
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(param => {
+      this.branch = this.branchService.getBranchByName(param["params"].name);
+    });
   }
 
-  mapInitializer() {
-    this.map = new google.maps.Map(this.gmap.nativeElement,
-    this.mapOptions);
-
-    this.marker.setMap(this.map);
-   }
-
+  backroundImageStyle() {
+    return {
+      "background-image": 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + this.branch.imgUrl + ')',
+      "background-position": "center center",
+      "background-size": "cover",
+      "background-repeat": "no-repeat"
+    };
+  }
 }

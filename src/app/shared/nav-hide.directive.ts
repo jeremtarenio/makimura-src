@@ -23,13 +23,9 @@ export class NavHideDirective {
       0;
 
     if (verticalOffset > this.lastScrollPosition) {
-      // down
-      console.log('down');
       this.renderer.removeClass(this.elementRef.nativeElement, "shown");
       this.renderer.addClass(this.elementRef.nativeElement, "hidden");
     } else {
-      // up
-      console.log('up');
       this.renderer.removeClass(this.elementRef.nativeElement, "hidden");
       this.renderer.addClass(this.elementRef.nativeElement, "shown");
     }

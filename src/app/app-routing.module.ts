@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'branch',
     children: [
       {
-        path: ':id',
+        path: ':name',
         component: BranchComponent
       }
     ]

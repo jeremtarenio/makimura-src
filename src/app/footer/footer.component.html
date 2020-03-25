@@ -1,20 +1,30 @@
 <section>
     <div class="my-container">
-        <div id="company">- Makimura -</div>
-        <ul class="socials">
-            <li><span class="iconify" data-icon="cib-facebook" data-inline="false"></span></li>
-            <li><span class="iconify" data-icon="cib-instagram" data-inline="false"></span></li>
-            <li><span class="iconify" data-icon="cib-twitter" data-inline="false"></span></li>
-        </ul>
-
-        <ul class="my-nav">
-            <li>Menu</li>
-            <li>Reservation</li>
-            <li>Contact</li>
-            <li>About</li>
-        </ul>
-
-
+        <div class="row">
+            <div class="col-md-6"><div id="company" (click)="navigateToHome()">- Makimura -</div></div>
+            <div class="col-md-3">
+                <p class="head">Navigation</p>
+                <ul class="my-nav">
+                    <li (click)="navigate('menu-section')">Menu</li>
+                    <li>Reservation</li>
+                    <li (click)="navigate('branches')">Branches</li>
+                    <li>About</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <p class="head">Contact</p>
+                <ul class="contacts">
+                    <li>(02) 86336</li>
+                    <li>0936 837 6473</li>
+                    <li>support@makimura.com</li>
+                </ul>
+                <ul class="socials">
+                    <li><span class="iconify" data-icon="cib-facebook" data-inline="false"></span></li>
+                    <li><span class="iconify" data-icon="cib-instagram" data-inline="false"></span></li>
+                    <li><span class="iconify" data-icon="cib-twitter" data-inline="false"></span></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </section>
 

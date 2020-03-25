@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { Branch, BranchService } from "../shared/branch.service";
 
 export class MenuItem {
   constructor(
@@ -10,12 +11,13 @@ export class MenuItem {
 }
 
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss']
+  selector: "app-homepage",
+  templateUrl: "./homepage.component.html",
+  styleUrls: ["./homepage.component.scss"]
 })
-export class HomepageComponent  {
+export class HomepageComponent implements OnInit {
   headerMobileVisible = true;
+  branches: Branch[];
 
   scrolled = false;
   ramens: MenuItem[] = [
@@ -91,12 +93,16 @@ export class HomepageComponent  {
 
   element: HTMLElement;
   activeElementId;
-  activeCategory = 'ramen';
+  activeCategory = "ramen";
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private branchService: BranchService) {}
+
+  ngOnInit(): void {
+    this.branches = this.branchService.getBranches();
+  }
 
   onClickCategory(category: string, scrollToTop: boolean) {
-    const menuSection = document.getElementById('menu-section');
+    const menuSection = document.getElementById("menu-section");
 
     this.activeCategory = category;
 
@@ -123,5 +129,4 @@ export class HomepageComponent  {
     this.router.navigate([`/branch/${branchName}`]);
     window.scrollTo(0, 0);
   }
-
 }

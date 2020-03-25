@@ -332,6 +332,12 @@ header {
 
 }
 
+@media (max-height: 768px) and (min-width: 1360px) and (orientation: landscape) { //768 px height and below
+  header {
+    background-position: 0% 300%;
+  }
+}
+
 @media (min-width: 992px) {
   /* header {
     height: calc(100% - 57.19px);

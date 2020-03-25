@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { throttle } from '../throttle.decorator';
+import { NavService } from '../shared/nav.service';
 
 @Component({
   selector: 'app-nav-mobile',
@@ -11,7 +12,7 @@ export class NavMobileComponent implements OnInit {
   scrollingPosition = "up";
   lastScrollPosition = 0;
 
-  constructor() { }
+  constructor(private navService: NavService) { }
 
   ngOnInit() {
   }
@@ -34,6 +35,16 @@ export class NavMobileComponent implements OnInit {
     }
 
     this.lastScrollPosition = verticalOffset <= 0 ? 0 : verticalOffset;
+  }
+
+  navigateToHome() {
+    this.navMenuMobileOpen = false;
+    this.navService.navigateToHome();
+  }
+
+  navigate(id: string) {
+    this.onToggleNavMenuMobile();
+    this.navService.navigate(id);
   }
 
 }

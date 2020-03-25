@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavService } from '../shared/nav.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private navService: NavService) { }
 
   ngOnInit() {
+  }
+
+  navigateToHome() {
+    this.navService.navigateToHome();
+  }
+
+  navigate(id: string) {
+    this.navService.navigate(id);
   }
 
 }

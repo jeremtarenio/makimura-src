@@ -21,6 +21,10 @@
   display: flex;
 }
 
+.my-nav-link, #company {
+  cursor: pointer;
+}
+
 .nav-wrapper {
   display: flex;
   justify-content: space-between;

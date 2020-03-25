@@ -5,13 +5,10 @@
 <app-nav-desktop></app-nav-desktop>
 
 <section class="my-container location-header">
-    <div class="location-header-img" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../../assets/branches/sfdo.jpg');
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;">
+    <div class="location-header-img"
+        [ngStyle]="backroundImageStyle()">
         <div class="text-background">
-            <h1 class="location-header-text">ANGELES</h1>
+            <h1 class="location-header-text">{{ branch.name }}</h1>
         </div>
     </div>
 </section>
@@ -22,18 +19,17 @@
     <div class="separator"></div>
     <div class="map">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d962.6461213073699!2d120.51989592922591!3d15.181147393643593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339692a913768c8b%3A0xc4f97cebc46d92ed!2sBuilding%202060%2C%20R.%20C.%20Santos%2C%20Clark%20Freeport%2C%20Mabalacat%2C%20Pampanga!5e0!3m2!1sen!2sph!4v1584890391584!5m2!1sen!2sph"
-              allowfullscreen="" aria-hidden="false"
-            tabindex="0"></iframe>
+            [src]="branch.googleMapEmbed | safe"
+            allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div>
 
     <!-- <div class="separator"></div> -->
-    <p><a href="https://goo.gl/maps/1tT8Hhr7Qx1a9m696" class="address">Building 2060, Clark Parade Grounds, S. Osmeña, Clark Freeport, Mabalacat, Pampanga</a><!-- <br> -->
+    <p><a href="{{ branch.googleMapLink }}" class="address">{{ branch.address }}</a><!-- <br> -->
         <!-- <a class="get-directions" href="https://goo.gl/maps/1tT8Hhr7Qx1a9m696">Get Directions</a> -->
     </p>
     <p>Monday - Friday<br>8:00am - 5:00pm</p>
     <p>Saturday & Sunday<br>12:00pm - 8:00pm</p>
-    <p>(02) 86336<br>0936 837 6473<br>clark-support@makimura.com</p>
+    <p>(02) 86336<br>0936 837 6473<br>{{ branch.email }}</p>
 
     <!-- <div #mapContainer id="map"></div> -->
 
