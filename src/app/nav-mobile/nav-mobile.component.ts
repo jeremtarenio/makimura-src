@@ -1,5 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { throttle } from '../throttle.decorator';
+import { Component, OnInit, HostListener, Renderer2, Output, EventEmitter } from '@angular/core';
 import { NavService } from '../shared/nav.service';
 
 @Component({
@@ -11,30 +10,23 @@ export class NavMobileComponent implements OnInit {
   navMenuMobileOpen = false;
   scrollingPosition = "up";
   lastScrollPosition = 0;
+  @Output() reservationClicked = new EventEmitter();
 
-  constructor(private navService: NavService) { }
+  constructor(private navService: NavService, private renderer: Renderer2) { }
 
   ngOnInit() {
   }
 
   onToggleNavMenuMobile() {
-    this.navMenuMobileOpen = !this.navMenuMobileOpen;
-  }
-
-  @HostListener("window:scroll", []) @throttle(250) onWindowScroll() {
-    const verticalOffset =
-      window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0;
-
-    if (verticalOffset > this.lastScrollPosition) {
-      this.scrollingPosition = "down";
+    if (!this.navMenuMobileOpen) {
+      this.renderer.removeClass(document.body, 'enable-scrolling');
+      this.renderer.addClass(document.body, 'disable-scrolling');
     } else {
-      this.scrollingPosition = "up";
+      this.renderer.removeClass(document.body, 'disable-scrolling');
+      this.renderer.addClass(document.body, 'enable-scrolling');
     }
 
-    this.lastScrollPosition = verticalOffset <= 0 ? 0 : verticalOffset;
+    this.navMenuMobileOpen = !this.navMenuMobileOpen;
   }
 
   navigateToHome() {
@@ -46,5 +38,12 @@ export class NavMobileComponent implements OnInit {
     this.onToggleNavMenuMobile();
     this.navService.navigate(id);
   }
+
+  toggleReservationForm() {
+    this.reservationClicked.emit();
+    this.onToggleNavMenuMobile();
+  }
+
+
 
 }

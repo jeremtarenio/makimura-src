@@ -219,6 +219,120 @@ header {
   }
 }
 
+/* RESERVATION MODAL */
+
+/* .reservation {
+
+  .modall {
+    background: white;
+    position: fixed;
+    z-index: 11;
+    display: inline-block;
+
+    .reservation-content {
+      padding: 1rem;
+
+      label {
+        display: block;
+        margin: 0;
+      }
+
+      input {
+        padding: 7px 15px;
+      }
+    }
+  }
+
+} */
+
+.reservation {
+  padding: 0;
+  transition: 0.3s;
+
+  &.shown {
+    display: initial;
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  .my-modal {
+    @include flex-center();
+    position: fixed;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+
+    .my-modal-form {
+      background-color: #fefefe;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      max-height: 80%;
+      position: relative;
+      overflow: auto;
+
+      .input-container {
+        position: relative;
+
+        &:last-of-type {
+          margin-bottom: 1rem;
+        }
+      }
+
+      .close-btn {
+        color: #aaa;
+        font-size: 28px;
+        font-weight: bold;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        line-height: 0.6;
+        cursor: pointer;
+      }
+
+      h1 {
+        font-family: $main-font;
+        text-align: center;
+        font-size: 8vw;
+        margin-bottom: 2rem;
+
+        span {
+          color: $red;
+        }
+      }
+
+      label {
+        display: block;
+        margin: 0;
+        margin-bottom: 0.3rem;
+      }
+
+      input {
+        padding: 7px 15px;
+        margin-bottom: 1rem;
+        height: 42px;
+        /* width: calc(100% - 40px); */
+        width: 100%;
+        border: 1px solid $light-grey;
+      }
+
+      button {
+        &.check {
+          display: block;
+          width: 100%;
+          background: $red;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: 376px) {
   .content {
     .main-text {
@@ -281,6 +395,16 @@ header {
   .my-container.locations {
     @include padding-x(20%, 20%);
   }
+
+  .reservation {
+    .my-modal {
+      .my-modal-form {
+        h1 {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 768px) and (orientation: landscape) {
@@ -303,6 +427,16 @@ header {
 
   .my-container.locations {
     @include padding-x(20%, 20%);
+  }
+
+  .reservation {
+    .my-modal {
+      .my-modal-form {
+        h1 {
+          font-size: 4rem;
+        }
+      }
+    }
   }
 }
 
@@ -329,10 +463,10 @@ header {
     top: 29%;
     width: 31.5%;
   }
-
 }
 
-@media (max-height: 768px) and (min-width: 1360px) and (orientation: landscape) { //768 px height and below
+@media (max-height: 768px) and (min-width: 1360px) and (orientation: landscape) {
+  //768 px height and below
   header {
     background-position: 0% 300%;
   }
@@ -342,6 +476,14 @@ header {
   /* header {
     height: calc(100% - 57.19px);
   } */
+
+  .reservation {
+    .my-modal {
+      .my-modal-form {
+        padding: 40px 100px;
+      }
+    }
+  }
 
   .my-nav-mobile {
     display: none;
@@ -390,7 +532,8 @@ header {
   }
 
   .content {
-    .main-text, p {
+    .main-text,
+    p {
       text-align: start;
     }
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NavService } from '../shared/nav.service';
 
@@ -8,6 +8,7 @@ import { NavService } from '../shared/nav.service';
   styleUrls: ['./nav-desktop.component.scss']
 })
 export class NavDesktopComponent implements OnInit {
+  @Output() reservationClicked = new EventEmitter();
 
 
   constructor(private router: Router, private navService: NavService) { }
@@ -22,6 +23,10 @@ export class NavDesktopComponent implements OnInit {
 
   navigate(id: string) {
     this.navService.navigate(id);
+  }
+
+  toggleReservationForm() {
+    this.reservationClicked.emit();
   }
 
 }

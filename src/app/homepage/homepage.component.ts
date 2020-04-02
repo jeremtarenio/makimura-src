@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Branch, BranchService } from "../shared/branch.service";
+import { NavService } from '../shared/nav.service';
 
 export class MenuItem {
   constructor(
@@ -95,10 +96,36 @@ export class HomepageComponent implements OnInit {
   activeElementId;
   activeCategory = "ramen";
 
-  constructor(private router: Router, private branchService: BranchService) {}
+  minDate;
+  maxDate;
+
+  headCount: number;
+
+  reservationFormActive = false;
+
+  constructor(private router: Router, private branchService: BranchService, private navService: NavService) {}
 
   ngOnInit(): void {
     this.branches = this.branchService.getBranches();
+    this.initializeDates();
+    this.headCount = 1;
+  }
+
+  initializeDates() {
+    const minDate = new Date();
+    const maxDate = new Date();
+
+    minDate.setHours(24);
+    maxDate.setMonth(maxDate.getMonth() + 3);
+
+    this.minDate = this.formatDate(minDate);
+    this.maxDate = this.formatDate(maxDate);
+  }
+
+  formatDate(date: Date): string {
+    return `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${(
+      "0" + date.getDate()
+    ).slice(-2)}`;
   }
 
   onClickCategory(category: string, scrollToTop: boolean) {
@@ -128,5 +155,31 @@ export class HomepageComponent implements OnInit {
   onNavigateToBranch(branchName) {
     this.router.navigate([`/branch/${branchName}`]);
     window.scrollTo(0, 0);
+  }
+
+  increment() {
+    if (this.headCount < 20) {
+      this.headCount++;
+    }
+  }
+
+  decrement() {
+    if (this.headCount > 1) {
+      this.headCount--;
+    }
+  }
+
+  onChange(val) {
+    if (this.headCount < 0) {
+      this.headCount = 1;
+    }
+
+    if (this.headCount > 20) {
+      this.headCount = 20;
+    }
+  }
+
+  toggleReservationForm() {
+    this.reservationFormActive = !this.reservationFormActive;
   }
 }

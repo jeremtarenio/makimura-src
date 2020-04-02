@@ -1,5 +1,64 @@
-<app-nav-mobile></app-nav-mobile>
-<app-nav-desktop></app-nav-desktop>
+<app-nav-mobile (reservationClicked)="toggleReservationForm()"></app-nav-mobile>
+<app-nav-desktop (reservationClicked)="toggleReservationForm()"></app-nav-desktop>
+
+<!-- <section class="reservation">
+  <div class="modall">
+    <div class="reservation-content">
+      <h1>Book A Table</h1>
+
+      <label for="date">Date:</label>
+      <input id="date" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="datePicker">
+      <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+      <mat-datepicker #datePicker></mat-datepicker>
+
+      <label for="time">Time</label>
+      <input id="time" [ngxTimepicker]="timePicker">
+      <ngx-material-timepicker #timePicker></ngx-material-timepicker>
+    </div>
+  </div>
+</section> -->
+<section class="reservation" [ngClass]="reservationFormActive ? 'shown' : 'hidden'">
+  <div class="my-modal">
+    <div class="my-modal-form">
+      <span class="close-btn" (click)="toggleReservationForm()">&times;</span>
+      <h1>Book A <span>Table</span></h1>
+
+
+        <label for="date">Date:</label>
+        <div class="input-container">
+          <input [readonly]="true" id="date" [value]="minDate" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="datePicker">
+          <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+        </div>
+        <mat-datepicker #datePicker></mat-datepicker>
+
+
+
+        <label for="time">Time:</label>
+        <div class="input-container">
+          <input id="time" [disableClick]="true" readonly [ngxTimepicker]="timePicker" [value]="'9:00 am'" min="09:00 am" max="04:00 pm">
+          <ngx-material-timepicker #timePicker [minutesGap]="5"></ngx-material-timepicker>
+          <ngx-material-timepicker-toggle [for]="timePicker">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="24px" height="24px" ngxMaterialTimepickerToggleIcon>
+                <path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,16H7.995 C7.445,16,7,15.555,7,15.005v-0.011C7,14.445,7.445,14,7.995,14H14V5.995C14,5.445,14.445,5,14.995,5h0.011 C15.555,5,16,5.445,16,5.995V16z"/>
+            </svg>
+          </ngx-material-timepicker-toggle>
+        </div>
+
+
+
+      <label for="headCount">Head count (max: 20): </label>
+      <div class="input-container">
+        <input id="headCount" type="number" [(ngModel)]="headCount" min="1" max="20" (change)="onChange($event)">
+        <button class="operator" (click)="increment()"> <span class="iconify" data-icon="bx-bx-plus" data-inline="false"></span> </button>
+        <button class="operator left"  (click)="decrement()"> <span class="iconify" data-icon="bx-bx-minus" data-inline="false"></span> </button>
+      </div>
+      <button class="check">Check Availability</button>
+    </div>
+  </div>
+</section>
+
+
+
 <header>
   <div class="content my-container">
     <div class="content-text">
@@ -11,7 +70,7 @@
   </div>
 </header>
 
-<div class="separator-container" id="menu-section">
+<div class="separator-container">
   <div>
     <svg id="" preserveAspectRatio="xMidYMax meet" class="svg-separator sep1" viewBox="0 0 1600 100" style=""
       data-height="100">
@@ -51,8 +110,8 @@
 
 </div>
 
-<section >
-  <div class="my-container">
+<section id="menu-section">
+  <div class="my-container" >
     <h1 class="section-title">Our <span class="red">Menu</span></h1>
     <div id="menuCarousel" class="carousel slide" data-touch="false" data-ride="carousel" data-interval="false">
       <div class="tabs">
@@ -70,7 +129,7 @@
           <div class="row">
             <div class="col-lg-4 col-6 menu-item-wrapper" *ngFor="let ramen of ramens; let i = index"
               (mouseleave)="clearActiveElement()" (mouseenter)="onMouseEnter(i)">
-              <img id="{{ i }}" class="calligraphy" src="../assets/ramen/bg.png" alt=""
+              <img id="{{ i }}" class="calligraphy" src="assets/ramen/bg.png" alt=""
                 [ngStyle]="{'opacity': isElementActive(i) ? '0.5' : '0'}">
               <img class="menu-item-img" src="{{ramen.imgUrl }}" alt="">
               <h4 class="menu-item-name">- {{ ramen.name }} -</h4>
@@ -84,7 +143,7 @@
           <div class="row">
             <div class="col-lg-4 col-6 menu-item-wrapper" *ngFor="let ramen of sides; let i = index"
               (mouseleave)="clearActiveElement()" (mouseenter)="onMouseEnter(i)">
-              <img id="{{ i }}" class="calligraphy" src="../assets/ramen/bg.png" alt=""
+              <img id="{{ i }}" class="calligraphy" src="assets/ramen/bg.png" alt=""
                 [ngStyle]="{'opacity': isElementActive(i) ? '0.5' : '0'}">
               <img class="menu-item-img" src="{{ramen.imgUrl }}" alt="">
               <h4 class="menu-item-name">- {{ ramen.name }} -</h4>

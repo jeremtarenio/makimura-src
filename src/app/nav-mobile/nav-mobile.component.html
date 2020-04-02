@@ -3,7 +3,7 @@
       <!-- <div class="toggler" (click)="onToggleNavMenuMobile()"><span class="iconify close-menu" data-icon="ic:baseline-close" data-inline="false"></span></div> -->
       <ul>
         <li class="my-nav-link" (click)="navigate('menu-section')">Menu</li>
-        <li class="my-nav-link">Reservation</li>
+        <li class="my-nav-link" (click)="toggleReservationForm()">Reservation</li>
         <li class="my-nav-link" (click)="navigate('branches')">Branches</li>
         <li class="my-nav-link">About</li>
       </ul>
@@ -16,7 +16,7 @@
     </div>
   </nav>
 
-  <nav class="my-nav-mobile" appNavHide> <!-- [ngClass]="scrollingPosition === 'down' ? 'hidden' : 'shown'" -->
+  <nav id="nav-mobile" class="my-nav-mobile" appNavHide> <!-- [ngClass]="scrollingPosition === 'down' ? 'hidden' : 'shown'" -->
     <h1 id="company" (click)="navigateToHome()">- Makimura -</h1>
     <div class="toggler" (click)="onToggleNavMenuMobile()"><span class="iconify burger" data-icon="bx:bx-menu"
         data-inline="false"></span></div>
